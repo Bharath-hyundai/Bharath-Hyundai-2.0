@@ -35,18 +35,18 @@ export default function CarInterestForm() {
     e.preventDefault();
     setErrors({});
     setSubmitted(false);
-  
+
     let newErrors: FormErrors = {};
-  
+
     if (!form.name.trim()) newErrors.name = "Name is required";
     if (!form.mobile.trim() || !/^\d{10}$/.test(form.mobile))
       newErrors.mobile = "Valid 10-digit mobile number is required";
     if (!form.email.trim() || !/^\S+@gmail\.com$/.test(form.email))
       newErrors.email = "Email must be a valid @gmail.com address";
     if (!form.model) newErrors.model = "Please select a car model";
-  
+
     setErrors(newErrors);
-  
+
     if (Object.keys(newErrors).length === 0) {
       try {
         const response = await fetch("/api/submit", {
@@ -54,10 +54,10 @@ export default function CarInterestForm() {
           headers: { "Content-Type": "application/json" },  // Fix: "ders" -> "headers"
           body: JSON.stringify(form),  // Fix: "y" -> "body"
         });
-        
+
         const result = await response.json();
-        
-        
+
+
         if (response.ok) {
           setSubmitted(true);
           setForm({ name: "", mobile: "", email: "", model: "" }); // Reset form
@@ -69,7 +69,7 @@ export default function CarInterestForm() {
       }
     }
   };
-  
+
 
   return (
     <>
@@ -80,17 +80,19 @@ export default function CarInterestForm() {
           className="h-12"
           alt="Hyundai Logo"
         />
-        <p className="text-gray-900 text-lg font-semibold">📞 7733888999</p>
+        <a className="text-gray-900 text-lg font-semibold" href="tel:+917733888999">📞 7733888999</a>
       </nav>
 
       {/* Hero Section */}
-      <div className="relative w-auto h-screen mt-14">
+      <div className="relative w-full min-h-screen mt-8">
         <img
-          src="/image.png"
+          src="/Banner.webp"
           alt="Banner"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
+
+
 
 
 
@@ -147,10 +149,19 @@ export default function CarInterestForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none"
               >
-                <option value="">Select Model</option>
-                <option value="Model A">Model A</option>
-                <option value="Model B">Model B</option>
-                <option value="Model C">Model C</option>
+                <option value="disable">Select Model</option>
+                <option value="I20">I20</option>
+                <option value="GRAND I10 NIOS">GRAND I10 NIOS</option>
+                <option value="AURA">AURA</option>
+                <option value="VERNA">VERNA</option>
+                <option value="ALCAZAR">ALCAZAR</option>
+                <option value="TUCSON">TUCSON</option>
+                <option value="CRETA N LINE">CRETA N LINE</option>
+                <option value="EXTER">EXTER</option>
+                <option value="VENUE N LINE">VENUE N LINE</option>
+                <option value="CRETA">CRETA</option>
+                <option value="CRETA ELECTRIC">CRETA ELECTRIC</option>
+                <option value="IONIQ 5">IONIQ 5</option>
               </select>
               {errors.model && <p className="text-red-500 text-xs">{errors.model}</p>}
 
@@ -198,6 +209,12 @@ const carOffers = [
   { name: "Hyundai Venue", price: "₹7.94 - 13.48 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1662110515.png" },
   { name: "Hyundai I20", price: "₹7.04-11.20 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1656409788.png" },
   { name: "Hyundai I20 N Line", price: "₹9.99-12.51 lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1665133996.png" },
+  { name: "Hyundai Venue N line", price: "₹Rs.12.07 - 13.89 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-24.png" },
+  { name: "Hyundai Creta N Line", price: "₹21.00 Lakh*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-22.png" },
+  { name: "Hyundai Grand i10", price: "₹4.98- 7.59 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-25.png" },
+  { name: "Hyundai Alcazar", price: "₹16.77 - 21.28 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1659615610.png" },
+  { name: "Hyundai Tucson", price: "₹29.01 - 35.94 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1662112191.png" },
+  { name: "Hyundai Exter", price: "₹6.12 - 9.16 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1689152983-1.png" },
 ];
 function OffersCarousel() {
   const swiperRef = useRef<SwiperCore | null>(null);
@@ -363,11 +380,11 @@ function Footer() {
         <div>
           <h3 className="font-semibold text-lg mb-3">Cars</h3>
           <ul className="space-y-2">
-            <li className="border-b pb-1">Hyundai Creta</li>
-            <li className="border-b pb-1">Hyundai Creta EV</li>
-            <li className="border-b pb-1">Hyundai I20</li>
-            <li className="border-b pb-1">Hyundai Verna</li>
-            <li className="border-b pb-1">Hyundai Venue</li>
+           <li  className="border-b pb-1 ">Hyundai Creta </li> 
+           <li className="border-b pb-1">Hyundai Creta EV </li>
+           <li className="border-b pb-1">Hyundai I20 </li> 
+           <li className="border-b pb-1">Hyundai Verna </li>
+           <li className="border-b pb-1">Hyundai Venue </li>
           </ul>
         </div>
 
@@ -393,12 +410,12 @@ function Footer() {
             <Instagram className="w-6 h-6 cursor-pointer hover:text-gray-400" />
           </div>
           <p className="flex items-center gap-2">
-            <Phone className="w-5 h-5" href="https://bharathyundai.com" />  7733888999
+          <Phone className="w-5 h-5"  /> <a href="tel:+917733888999" >  7733888999 </a>
           </p>
           <p className="flex items-center gap-2 mt-2">
             <Mail className="w-5 h-5" />
-            <a href="mailto:digitalvrm@gmail.com" className="hover:text-gray-400">
-              digitalvrm@gmail.com
+            <a  className="hover:text-gray-400" href="mailto:info@bharathyundai.in">
+            info@bharathyundai.in
             </a>
           </p>
         </div>
@@ -426,28 +443,40 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const features = [
   {
-    image: "https://s7ap1.scene7.com/is/image/tatamotors/adaptive-cruise-control-2?$TT-614-420-S$&amp;fit=crop&amp;fmt=webp-alpha",
-    title: "Connected LED Tail lamps with Goodbye Animation",
+    image: "https://cretaelectric.hyundai.co.in/assets/creta-DcM4ZZq5.jpg",
+    title: "Driving range up to 473 km**",
     description:
-      "CURVV is a fine blend of Sturdy SUV & Premium Design of a Cépé. A Coupé SUV Shaped for You.",
+      "Say goodbye to frequent charging stops! With a driving range of up to 473 km on a single full charge**, the CRETA Electric is built for those who crave uninterrupted adventures.",
   },
   {
-    image: "https://example.com/image1.jpg",
-    title: "Connected LED Tail lamps with Goodbye Animation",
+    image: "https://cretaelectric.hyundai.co.in/assets/creta2-CtNK2RxL.jpg",
+    title: "Pixelated graphic grille",
     description:
-      "CURVV is a fine blend of Sturdy SUV & Premium Design of a Cépé. A Coupé SUV Shaped for You.",
+      "The Hyundai CRETA Electric sets a new benchmark in design with a pixelated graphic front-grille with integrated charging port and a pixelated graphic lower bumper.",
   },
   {
-    image: "https://example.com/image2.jpg",
-    title: "ADAS Level 2",
+    image: "https://cretaelectric.hyundai.co.in/assets/creta7-DR7lee5y.jpg",
+    title: "Active Air Flaps#",
     description:
-      "Drive with complete peace of mind of unmatched safety and advanced driver assistance.",
+      "The Active Air Flap (AAF) adds a flare in style and performance, optimizing airflow for cooling and enhanced aerodynamics.",
   },
   {
-    image: "https://example.com/image3.jpg",
-    title: "ATLAS Architecture",
+    image: "https://cretaelectric.hyundai.co.in/assets/creta3-DI0AVk7J.jpg",
+    title: "Pixelated graphic rear bumper",
     description:
-      "Experience the CURVV's luxury and resilience with the sophisticated, toughened ATLAS Architecture, blending elegance and strength seamlessly.",
+      "Complementing the front design, the pixelated graphic rear bumper, and the connected LED tail lamps offer an innovative and electrifying appearance.",
+  },
+  {
+    image: "https://cretaelectric.hyundai.co.in/assets/creta8-CxR7ji2m.jpg",
+    title: "R17 (D=436.6 mm) Aero Alloy wheels",
+    description:
+      "Equipped with R17 Aero Alloy Wheels with Low Rolling Resistance (LRR) tyres, the CRETA Electric enhances aerodynamic performance, contributing to improved range efficiency.",
+  },
+  {
+    image: "https://cretaelectric.hyundai.co.in/assets/creta4-hp25Do38.jpg",
+    title: "Fast home charging",
+    description:
+      "The Hyundai CRETA Electric can be charged from 10% to 80% in just 58 minutes*** (DC charging), while the 11kW Wall Box Home fast AC charger can achieve the same charge range in an impressive 4 hours*.",
   },
 ];
 
