@@ -83,14 +83,23 @@ export default function CarInterestForm() {
         <a className="text-gray-900 text-lg font-semibold" href="tel:+917733888999">📞 7733888999</a>
       </nav>
 
-      {/* Hero Section */}
-      <div className="relative w-full min-h-screen mt-8">
-        <img
-          src="/Banner.webp"
-          alt="Banner"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
+           {/* Desktop Hero Section */}
+<div className="relative w-full min-h-screen mt-14 md:mt-10 hidden md:block">
+  <img
+    src="/Banner.webp"
+    alt="Banner"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+</div>
+
+{/* Mobile Hero Section */}
+<div className="relative w-full min-h-[50vh] mt-14 md:mt-10 md:hidden">
+  <img
+    src="/mobile-banner.webp"
+    alt="Mobile Banner"
+    className="w-full h-full object-cover"
+  />
+</div>
 
 
 
