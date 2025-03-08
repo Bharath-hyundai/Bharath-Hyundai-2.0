@@ -76,7 +76,7 @@ export default function CarInterestForm() {
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 lg:px-16 py-3 bg-white/30 backdrop-blur-lg shadow-md">
         <img
-          src="https://bharathyundai.com/wp-content/uploads/2024/06/wss-1.png"
+          src="/Hyundai-logo.png"
           className="h-12"
           alt="Hyundai Logo"
         />
