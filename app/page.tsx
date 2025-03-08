@@ -413,10 +413,10 @@ function Footer() {
         <div className="space-y-8">
           <h3 className="font-semibold text-lg mb-3">Follow Us</h3>
           <div className="flex gap-4 mb-3">
-            <Facebook className="w-6 h-6 cursor-pointer hover:text-gray-400" />
+           <a href ="https://www.facebook.com/BharatHyundaiTelangana"> <Facebook className="w-6 h-6 cursor-pointer hover:text-gray-400" /> </a>
             <Twitter className="w-6 h-6 cursor-pointer hover:text-gray-400" />
-            <Linkedin className="w-6 h-6 cursor-pointer hover:text-gray-400" />
-            <Instagram className="w-6 h-6 cursor-pointer hover:text-gray-400" />
+           <a href ="https://www.linkedin.com/company/86301981/admin/dashboard/"> <Linkedin className="w-6 h-6 cursor-pointer hover:text-gray-400" /></a>
+           <a href ="https://www.instagram.com/bharathyundai.telangana/"> <Instagram className="w-6 h-6 cursor-pointer hover:text-gray-400" /></a>
           </div>
           <p className="flex items-center gap-2">
           <Phone className="w-5 h-5"  /> <a href="tel:+917733888999" >  7733888999 </a>
