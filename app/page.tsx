@@ -213,17 +213,18 @@ import Image from "next/image";
 import { Swiper as SwiperCore } from "swiper/types"; // Import Swiper type
 
 const carOffers = [
-  { name: "Hyundai Creta", price: "₹10.99-20.14 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-20.png" },
-  { name: "Hyundai Verna", price: "₹11-17.41 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1679903528.png" },
-  { name: "Hyundai Venue", price: "₹7.94 - 13.48 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1662110515.png" },
-  { name: "Hyundai I20", price: "₹7.04-11.20 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1656409788.png" },
-  { name: "Hyundai I20 N Line", price: "₹9.99-12.51 lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1665133996.png" },
-  { name: "Hyundai Venue N line", price: "₹Rs.12.07 - 13.89 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-24.png" },
-  { name: "Hyundai Creta N Line", price: "₹21.00 Lakh*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-22.png" },
-  { name: "Hyundai Grand i10", price: "₹4.98- 7.59 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-25.png" },
-  { name: "Hyundai Alcazar", price: "₹16.77 - 21.28 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1659615610.png" },
-  { name: "Hyundai Tucson", price: "₹29.01 - 35.94 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1662112191.png" },
-  { name: "Hyundai Exter", price: "₹6.12 - 9.16 Lakhs*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1689152983-1.png" },
+ // { name: "Hyundai Creta", price: "₹50,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-20.png" },
+  { name: "Hyundai Verna", price: "₹50,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1679903528.png" },
+  { name: "Hyundai Venue", price: "₹55,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1662110515.png" },
+  { name: "Hyundai I20", price: "₹50,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1656409788.png" },
+  { name: "Hyundai I20 N Line", price: "₹45,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1665133996.png" },
+  { name: "Hyundai Venue N line", price: "₹50,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-24.png" },
+ // { name: "Hyundai Creta N Line", price: "₹21.00 Lakh*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/image-removebg-preview-22.png" },
+  { name: "Grand i10 NIOS", price: "₹53,000*", image: "https://lakshmihyundai.s3.ap-south-1.amazonaws.com/models/display_images/1675149576.png" },
+  { name: "Hyundai Alcazar", price: "₹25,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1659615610.png" },
+  { name: "Hyundai Tucson", price: "₹50,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1662112191.png" },
+  { name: "Hyundai Exter", price: "₹35,000*", image: "https://bharathyundai.com/wp-content/uploads/2024/05/1689152983-1.png" },
+  {name : "Hyundai Aura", price : '₹48,000*',image:"https://lakshmihyundai.s3.ap-south-1.amazonaws.com/models/display_images/1676446028.png"},
 ];
 function OffersCarousel() {
   const swiperRef = useRef<SwiperCore | null>(null);
@@ -268,8 +269,8 @@ function OffersCarousel() {
                   height={250}
                   className="w-full rounded-lg"
                 />
-                <h3 className="text-black text-xl font-semibold mt-4">{car.name}</h3>
-                <p className="text-red-600 text-lg font-bold">{car.price}</p>
+               <h3 className="text-blue-900 text-xl font-semibold mt-4">{car.name}</h3>
+                <p className="text-red-600 text-lg font-bold"><span className="text-md text-black">save upto </span>: {car.price}</p>
               </div>
             </SwiperSlide>
           ))}
