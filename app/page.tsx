@@ -437,7 +437,7 @@ function Footer() {
           <a href="#" className="hover:text-gray-400">Terms & Conditions</a> |
           <a href="#" className="hover:text-gray-400"> Privacy Policy</a>
         </p>
-        <p className="mt-2">© 2025 All Rights Reserved by Venkataramana Motors.</p>
+        <p className="mt-2">© 2025 All Rights Reserved by Bharath Hyundai Motors.</p>
         <p className="mt-1 text-gray-500">Powered by <a href="https://broaddcast.com/"><span className="hover:text-red-500"> BroaddCast Business Solutions LLP.</span> </a></p>
       </div>
     </footer>
