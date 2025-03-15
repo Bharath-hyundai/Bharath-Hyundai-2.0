@@ -24,8 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Meta Tags */}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Google Ads (gtag.js) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-16918294850" />
+        
+        {/* Google Analytics */}
         <Script
           id="google-analytics"
           strategy="afterInteractive"
@@ -35,6 +40,31 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-16918294850');
+            `,
+          }}
+        />
+
+        {/* Google Ads Conversion Tracking */}
+        <Script
+          id="google-conversion"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) !== 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-16918294850/zUJhCKjvzKgaEMLiooM_',
+                    'value': 1.0,
+                    'currency': 'INR',
+                    'event_callback': callback
+                });
+                return false;
+              }
+              window.gtag_report_conversion = gtag_report_conversion;
             `,
           }}
         />
