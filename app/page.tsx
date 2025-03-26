@@ -54,6 +54,7 @@ export default function interestForm() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
+      setLoading(true);
       try {
         const response = await fetch('/api/submit', {
           method: 'POST', // Fix: "hod" -> "method"
