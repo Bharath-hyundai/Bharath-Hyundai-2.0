@@ -1,5 +1,5 @@
 'use client';
-
+import { CgSpinner } from "react-icons/cg";
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -27,6 +27,7 @@ export default function interestForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
+   const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -71,6 +72,8 @@ export default function interestForm() {
         }
       } catch (error) {
         alert('❌ Server error. Please try again later.');
+      }finally {
+        setLoading(false);
       }
     }
   };
@@ -122,6 +125,7 @@ export default function interestForm() {
                 placeholder='Name'
                 value={form.name}
                 onChange={handleChange}
+                disabled={loading}
                 className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
               />
               {errors.name && (
@@ -135,6 +139,7 @@ export default function interestForm() {
                 placeholder='Mobile Number'
                 value={form.mobile}
                 onChange={handleChange}
+                disabled={loading}
                 className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
               />
               {errors.mobile && (
@@ -148,6 +153,7 @@ export default function interestForm() {
                 placeholder='Email (optional)'
                 value={form.email}
                 onChange={handleChange}
+                disabled={loading}
                 className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
               />
               {/*               {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>} */}
@@ -157,6 +163,7 @@ export default function interestForm() {
                 name='model'
                 value={form.model}
                 onChange={handleChange}
+                disabled={loading}
                 className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
               >
                 <option value='disable'>Select Model</option>
@@ -182,7 +189,14 @@ export default function interestForm() {
                 type='submit'
                 className='w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-blue-700 transition duration-200'
               >
-                Submit
+                {loading ? (
+                  <div className="flex items-center justify-center">
+                    <CgSpinner className="animate-spin h-5 mr-2 text-white w-5" />
+                    Submitting...
+                  </div>
+                ) : (
+                  "Submit"
+                )}
               </button>
             </form>
           )}
