@@ -111,84 +111,83 @@ export default function interestForm() {
       </div>
 
       {/* Form Section - Positioned Below Banner on Small Screens */}
-      <div className='w-full bg-white flex justify-center border md:top-2/3  lg:absolute lg:top-1/2 lg:left-72 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-white lg:p-6 lg:rounded-2xl lg:shadow-lg lg:w-[90%] lg:max-w-lg'>
-        <div className='bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg w-full max-w-md lg:max-w-lg '>
-          <h3 className='text-xl sm:text-2xl font-bold text-black text-center pb-4'>
+      <div className="w-full bg-white flex justify-center px-4 py-8 lg:py-12 lg:w-full">
+        <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg w-full lg:w-full">
+          <h3 className="text-xl sm:text-2xl font-bold text-black text-center pb-6">
             REGISTER YOUR INTEREST
           </h3>
 
           {!submitted && (
-            <form onSubmit={handleSubmit} className='space-y-6'>
-              {/* Name */}
-              <input
-                type='text'
-                name='name'
-                placeholder='Name'
-                value={form.name}
-                onChange={handleChange}
-                disabled={loading}
-                className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
-              />
-              {errors.name && (
-                <p className='text-red-500 text-xs'>{errors.name}</p>
-              )}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name & Mobile Number in One Row for Large Screens */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Name */}
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={form.name}
+                  onChange={handleChange}
+                  disabled={loading}
+                  className="w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-left text-sm sm:text-base focus:outline-none"
+                />
+                {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
 
-              {/* Mobile */}
-              <input
-                type='text'
-                name='mobile'
-                placeholder='Mobile Number'
-                value={form.mobile}
-                onChange={handleChange}
-                disabled={loading}
-                className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
-              />
-              {errors.mobile && (
-                <p className='text-red-500 text-xs'>{errors.mobile}</p>
-              )}
+                {/* Mobile Number */}
+                <input
+                  type="text"
+                  name="mobile"
+                  placeholder="Mobile Number"
+                  value={form.mobile}
+                  onChange={handleChange}
+                  disabled={loading}
+                  className="w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-left text-sm sm:text-base focus:outline-none"
+                />
+                {errors.mobile && <p className="text-red-500 text-xs">{errors.mobile}</p>}
+              </div>
 
-              {/* Email */}
-              <input
-                type='email'
-                name='email'
-                placeholder='Email (optional)'
-                value={form.email}
-                onChange={handleChange}
-                disabled={loading}
-                className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
-              />
-              {/*               {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>} */}
+              {/* Email & Car Model in One Row for Large Screens */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Email */}
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email (optional)"
+                  value={form.email}
+                  onChange={handleChange}
+                  disabled={loading}
+                  className="w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-left text-sm sm:text-base focus:outline-none"
+                />
 
-              {/* Model Selection */}
-              <select
-                name='model'
-                value={form.model}
-                onChange={handleChange}
-                disabled={loading}
-                className='w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-center text-sm sm:text-base focus:outline-none'
-              >
-                <option value='disable'>Select Model</option>
-                <option value='I20'>I20</option>
-                <option value='GRAND I10 NIOS'>GRAND I10 NIOS</option>
-                <option value='AURA'>AURA</option>
-                <option value='VERNA'>VERNA</option>
-                <option value='ALCAZAR'>ALCAZAR</option>
-                <option value='TUCSON'>TUCSON</option>
-                <option value='CRETA N LINE'>CRETA N LINE</option>
-                <option value='EXTER'>EXTER</option>
-                <option value='VENUE N LINE'>VENUE N LINE</option>
-                <option value='CRETA'>CRETA</option>
-                <option value='CRETA ELECTRIC'>CRETA ELECTRIC</option>
-                <option value='IONIQ 5'>IONIQ 5</option>
-              </select>
-              {errors.model && (
-                <p className='text-red-500 text-xs'>{errors.model}</p>
-              )}
+                {/* Car Model Dropdown */}
+                <select
+                  name="model"
+                  value={form.model}
+                  onChange={handleChange}
+                  disabled={loading}
+                  className="w-full px-4 py-2 border-b-2 border-black bg-transparent text-black text-left text-sm sm:text-base focus:outline-none"
+                >
+                  <option value="disable">Select Model</option>
+                  <option value="I20">I20</option>
+                  <option value="GRAND I10 NIOS">GRAND I10 NIOS</option>
+                  <option value="AURA">AURA</option>
+                  <option value="VERNA">VERNA</option>
+                  <option value="ALCAZAR">ALCAZAR</option>
+                  <option value="TUCSON">TUCSON</option>
+                  <option value="CRETA N LINE">CRETA N LINE</option>
+                  <option value="EXTER">EXTER</option>
+                  <option value="VENUE N LINE">VENUE N LINE</option>
+                  <option value="CRETA">CRETA</option>
+                  <option value="CRETA ELECTRIC">CRETA ELECTRIC</option>
+                  <option value="IONIQ 5">IONIQ 5</option>
+                </select>
+                {errors.model && <p className="text-red-500 text-xs">{errors.model}</p>}
+              </div>
 
               {/* Submit Button */}
               <button
-                type='submit'
-                className='w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-blue-700 transition duration-200'
+                type="submit"
+                className="w-full bg-black text-white py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-gray-800 transition duration-200"
               >
                 {loading ? (
                   <div className="flex items-center justify-center">
@@ -201,8 +200,9 @@ export default function interestForm() {
               </button>
             </form>
           )}
-          <p className='text-xs text-gray-600 mt-3 text-center'>
-            *By clicking 'Submit', you agree to our Terms & Conditions.
+
+          <p className="text-xs text-gray-600 mt-3 text-center">
+            *Disclaimer: By clicking 'Submit', you have agreed to our Terms and Conditions.
           </p>
         </div>
       </div>
